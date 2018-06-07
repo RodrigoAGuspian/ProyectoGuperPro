@@ -25,5 +25,9 @@ urlpatterns = [
 
 ]
 
+path = '/home/path/to/project'
+if path not in sys.path:
+    sys.path.append(path)
+
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
