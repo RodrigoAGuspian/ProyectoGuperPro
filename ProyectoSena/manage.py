@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import os
 import sys
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ProyectoSena.settings")
