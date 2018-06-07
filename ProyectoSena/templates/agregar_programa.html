@@ -1,0 +1,12 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Agregar Programas{% endblock %}
+{% block contenido %}
+	<div class="agregar">
+		<h1>{{msj}}</h1>
+		<form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ formulario.as_p}}	
+			<input class="btn btn-info" type="submit" value="Agregar">	
+		</form>
+	</div>
+{% endblock %}

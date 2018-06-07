@@ -1,0 +1,31 @@
+{% extends 'main/main.html' %}
+{% block titulo %}
+	{{msj}}
+{% endblock %}
+
+
+{% block contenido %}
+	
+	<div class="agregar">
+		{% if msj %}
+	  		<h1>{{msj}}</h1>
+		{% endif %}
+
+	  	{% if  msjError %}
+			<h4 style="background:pink">{{msjError}}</h4>
+		{% endif %}
+
+		{% if msjErrorRol %}
+			<h4 style="background:pink">{{msjErrorRol}} <a href="{% url 'url_agregar_rol_auto' rol='VIGILANTE' %}">Clik Para Agregar Rol</a> </h4>
+		{% endif %}
+
+		<form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ formulario2.as_p }}
+			{{ formulario.as_p }}
+			{{ formulario4.as_p }}
+			<input type="submit" value="Registar" class="btn btn-info">	
+		</form>
+	</div>
+	
+{% endblock %}

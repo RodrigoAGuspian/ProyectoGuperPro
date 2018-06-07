@@ -1,0 +1,25 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Programas{% endblock %}
+{% block contenido %}
+	
+	<h1>Lista de Programas</h1>
+	<div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<tr >
+				<th>Programa</th>
+				<th>Abreviacion</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
+			</tr>
+			{%for i in programa %}
+			<tr>	
+				<td>{{ i.nombre }}</td>
+				<td>{{ i.abreviacion }}</td>
+				<td><a href="{% url 'url_editar_programa' id_programa=i.id %}">Editar</a></td>
+				<td><a href="{% url 'url_eliminar_programa' id_programa=i.id %}">Eliminar</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<a href="{% url 'url_agregar_programa' %}">{{msj}}</a>
+{% endblock %}

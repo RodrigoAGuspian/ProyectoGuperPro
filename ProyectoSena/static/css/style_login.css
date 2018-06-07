@@ -1,0 +1,69 @@
+/*=============LOGIN====================================*/
+body.login_admin{
+  color: white;
+  font-family: Raleway;
+  background:#034750; 
+}
+img.logo_login{
+  width: 300px;
+}
+
+img#img_collage{
+ width: 70%;
+}
+
+div.div_collage{
+  text-align: right;
+}
+
+div.div_login{
+  width: 300px;
+  margin-top: 15%;
+}
+
+input#id_usuario,input#id_contraseña{
+ width:100%;
+}
+
+@media (max-width: 768px){/*max-width: @screen-md-max*/
+  div.div_collage{
+    text-align: center;
+  }
+}
+
+
+
+/*=============LOGIN====================================*/
+/*body.login_admin{
+ background:#034750; 
+}
+img#iniciologin{
+  width: 300px;
+}
+section#login_admin{
+  color: white;
+  font-family: Raleway;
+  
+}
+div.login{
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+div.collage{
+  padding-left: 10%;
+  padding-right: 5%;
+}
+@media (max-width: 767px){
+  div.collage{
+    padding: 0;
+  }
+}
+
+input#id_usuario,input#id_contraseña{
+ width:90%;
+}
+img#img_collage{
+ width: 100%;
+ 
+}*/

@@ -1,0 +1,29 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Fichas{% endblock %}
+{% block contenido %}
+	
+	<h1>Fichas</h1>
+	<div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<tr>
+				<th>Ficha numero</th>
+				<th>Programa</th>
+				<th>Jornada</th>
+				<th>Ambiente</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
+			</tr>
+			{% for ficha in ficha %}
+			<tr>
+				<td>{{ ficha.numeroFicha }}</td>
+				<td>{{ ficha.programa}}</td>
+				<td>{{ ficha.jornada }}</td>
+				<td>{{ ficha.ambiente }}</td>
+				<td><a href="{% url 'url_editar_ficha' id_ficha=ficha.id %}">editar</a></td>
+				<td><a href="{% url 'url_eliminar_ficha' id_ficha=ficha.id %}">eliminar</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<a href="{% url 'url_agregar_ficha' %}">{{msj}}</a>
+{% endblock %}
