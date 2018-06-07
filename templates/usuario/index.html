@@ -1,0 +1,7 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Usuarios{% endblock %}
+{% block contenido %}
+{% for usuario in usuario %}
+{{ usuario }}
+{% endfor %}
+{% endblock %}

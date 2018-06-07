@@ -1,0 +1,46 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Peticiones{% endblock %}
+{% block contenido %}
+
+	<table border="1">
+		<thead>
+			<tr>
+
+				<th>ver</th>
+	      		<th>Identida</th>
+	     		<th>Nombre</th>
+	     		<th>Apellido</th>
+	     		<th>Ficha</th>
+	        	<th>Programa</th>
+	        	<th>Jornada</th>
+	        	<th>Fecha</th>
+	        	<th>Hora</th>
+	        	<th>Aprobar</th>
+	        	<th>Rechazar</th>
+	     	</tr>
+		</thead>
+		<tbody>
+			{% for list in lis_pet %}
+			<tr>
+
+				<td> <a href="{% url 'url_ver_peticion' id_pet=list.id %}">ver</a></td>
+
+				<td>{{ list.persona.documentoIdentidad }}</td>
+				<td>{{ list.persona.nombres }}</td>
+				<td>{{ list.persona.apellidos }}</td>
+				
+				<td>{{ list.ficha.numeroFicha }}</td>
+				<td>{{ list.ficha.programa.abreviacion }}</td>
+				<td>{{ list.ficha.jornada }}</td>
+
+				<td>{{ list.permiso.fecha  }}</td>
+				<td>{{ list.permiso.horaSalida }}</td>
+				<td> <a href="{% url 'url_aprobar_peticion' id_pet=list.id %}">finalizar</a></td>
+				<td> <a href="{% url 'url_rechazar_peticion' id_pet=list.id %}">rechazar</a></td>
+
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Permisos{% endblock %}
+{% block contenido %}
+{% for permiso in permiso %}
+{{ permiso }}
+{% endfor %}
+{% endblock %}

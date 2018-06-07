@@ -1,0 +1,249 @@
+
+{% load staticfiles %}
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="description" content="">
+          <meta name="author" content="">     
+    <!-- TÍTULO -->
+        <title>{% block titulo %}{% endblock %}</title>
+    <!-- FIN/TÍTULO -->
+        <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}">
+
+
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+
+
+    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+        <!-- NAVEGACION -->
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <img id="logo" src="{% static 'img/inicio.png' %}">
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                   
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Programas">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseprogramas" data-parent="#exampleAccordion">
+                            <i class="fa fa-book"></i>
+                            <span class="nav-link-text">Programas</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseprogramas">
+                            <li>
+                                <a href="{% url 'url_lista_programas' %}"> <i class="fa fa-list-alt"></i> Lista De Programas</a>
+
+                            </li>
+                            <li>
+                                <a href="{% url 'url_agregar_programa' %}"> <i class="fa fa-plus-circle"></i> Agregar Programa</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Fichas">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsefichas" data-parent="#exampleAccordion">
+                                <i class="fa fa-newspaper-o"></i>
+                            <span class="nav-link-text">Fichas</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapsefichas">
+                            <li>
+                                <a href="{% url 'url_lista_fichas' %}"> <i class="fa fa-list-alt"></i> Lista De Fichas</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'url_agregar_ficha' %}"> <i class="fa fa-plus-circle"></i> Agregar Fichas</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'url_agregar_persona_ficha' %}"> <i class="fa fa-user-plus"></i> Agregar Persona Ficha</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                
+
+
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Roles">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseroles" data-parent="#exampleAccordion">
+                            <i class="fa fa-group"></i>
+                            <span class="nav-link-text">Roles</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseroles">
+                            <li>
+                                <a href="{% url 'url_lista_roles' %}"><i class="fa fa-list-alt"></i>Lista Roles</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'url_agregar_rol' %}"><i class="fa fa-plus-circle"></i> Agregar Rol</a>
+                            </li>
+                            <li>
+                                <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseaprendices"><img class="iconos" src="{% static 'img/Aprendiz.png'%}">Aprendices</a>
+                                <ul class="sidenav-third-level collapse" id="collapseaprendices">
+                                    <li>
+                                        <a href="{% url 'url_lista_aprendices' %}"><i class="fa fa-list-alt"></i> Lista De Aprendices </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'url_agregar_aprendiz' %}"><i class="fa fa-user-plus"></i> Agregar Aprendiz </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'url_agregar_aprendiz_excel' %}"><i class="fa fa-search"></i> Buscar Excel </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseinstructor"><img class="iconos" src="{% static 'img/Instructor.png'%}">Instructor</a>
+                                <ul class="sidenav-third-level collapse" id="collapseinstructor">
+                                    <li>
+                                        <a href="{% url 'url_lista_instructores' %}"> <i class="fa fa-list-alt"></i> Lista De Instructores</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'url_agregar_instructor' %}"> <i class="fa fa-user-plus"></i> Agregar Instructor </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapsevigilante"><img class="iconos" src="{% static 'img/Vigilante.png'%}">Vigilantes</a>
+                                <ul class="sidenav-third-level collapse" id="collapsevigilante">
+                                   <li>
+                                        <a href="{% url 'url_lista_vigilantes' %}"><i class="fa fa-list-alt"></i> Lista De Vigilantes</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'url_agregar_vigilante' %}"><i class="fa fa-user-plus"></i> Agregar Vigilante </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Permisos">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsepermisos" data-parent="#exampleAccordion">
+                            
+                            <span class="nav-link-text">Permisos</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapsepermisos">
+                            <li>
+                                <a href=""> <i class="fa fa-comment-o"></i> Permisos</a>
+                            </li>
+                           
+                        </ul>
+                    </li>
+
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administradores">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseadministradores" data-parent="#exampleAccordion">
+                            <i class="fa fa-star-o"></i>
+                            <span class="nav-link-text">Administradores</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseadministradores">
+                            <li>
+                                <a href="{% url 'url_agregar_admin' %}"><i class="fa fa-user-plus"></i> Agregar Administrador </a>
+                            </li>
+                         
+                        </ul>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reportes">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsereportes" data-parent="#exampleAccordion">
+                            <i class="fa fa-pie-chart"></i>
+                            <span class="nav-link-text">Reportes</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapsereportes">
+                            <li>
+                                <a href="{% url 'url_reporte_aprendiz' %}"><i class="fa fa-address-card-o"></i> Reporte Aprendiz </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'url_reporte_ficha' %}"><i class="fa fa-newspaper-o"></i> Reporte Ficha </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--=================Ocultar NAv============================-->
+                <ul class="navbar-nav sidenav-toggler">
+                    <li class="nav-item">
+                      <a class="nav-link text-center" id="sidenavToggler">
+                        <i class="fa fa-fw fa-angle-left"></i>
+                      </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesion</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+                        
+        <div class="content-wrapper">
+            
+            <div class="container">
+              <!-- Breadcrumbs-->
+
+              {% block contenido %}
+              {% endblock %}
+
+              <!--div style="height: 1000px;"></div-->
+            </div>
+            <!-- /.container-fluid-->
+            <!-- /.content-wrapper-->
+            <footer class="sticky-footer">
+              <div class="container">
+                <div class="text-center">
+                  <small>SENA</small>
+                </div>
+              </div>
+            </footer>
+            <!-- Scroll to Top Button-->
+            
+            <!-- Logout Modal-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-info" href="{% url 'url_logout' %}">Cerrar Sesion</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+
+
+            <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+            <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="{% static 'js/sb-admin.min.js'%}"></script>
+        <!-- Custom scripts for this page-->
+        <!-- Toggle between fixed and navbar-->
+            <script>
+            $('#toggleNavPosition').click(function() {
+              $('body').toggleClass('fixed-nav');
+              $('nav').toggleClass('fixed-top static-top');
+            });
+
+            </script>
+        <!-- Toggle between dark and light navbar-->
+            
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Listar Aprendices{% endblock %}
+{% block contenido %}
+<p align="right">Hoy: {{ fechaToday }}</p>
+<h1>Solicitud a realizar</h1>
+
+<blockquote>Digite el número de ficha</blockquote>
+
+<form action="" method="POST" >
+	{% csrf_token %}
+	<input type="text" name="numeroFicha" placeholder="Número de ficha">
+	<input type="submit" value="Generar">
+</form>
+
+<table border="1">
+	<thead>
+		<th>{{ txtFicha }}</th>
+		<th>{{ txtNombre }}</th>
+		<th>{{ ver }}</th>
+	</thead>
+	<tbody>
+		{% for ficha in queryFicha %}
+		<tr>
+			<td>{{ ficha.numeroFicha }}</td>
+			<td>{{ ficha.programa }}</td>
+			<td><a href="{% url 'url_view_ficha'  id_ficha=ficha.id %}"><i class="fa fa-eye"></i></a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{{ msjError }}
+
+{% endblock%}
