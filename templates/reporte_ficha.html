@@ -1,0 +1,42 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Listar Aprendices{% endblock %}
+{% block contenido %}
+	<p align="right">Hoy: {{ fechaToday }}</p>
+	<h1>Reporte por Ficha</h1>
+
+	<blockquote>Digite el número de ficha</blockquote>
+	<div class="agregar">
+		
+		<form action="" method="POST">
+			{% csrf_token %}
+			<input type="text" name="numeroFicha" placeholder="Número de ficha">
+			<input type="submit" value="Generar" class="btn btn-info">
+		</form>
+	</div>
+
+	{% if queryFicha %}
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<thead>
+				<th> Ficha </th>
+				<th> Programa </th>
+				<th> ver </th>
+			</thead>
+			<tbody>
+				{% for ficha in queryFicha %}
+				<tr>
+					<td>{{ ficha.numeroFicha }}</td>
+					<td>{{ ficha.programa }}</td>
+					<td><a href="{% url 'url_view_ficha'  id_ficha=ficha.id %}"><i class="fa fa-eye"></i></a></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{%endif%}
+
+	{% if msjError %}
+		{{ msjError }}
+	{% endif %}
+
+{% endblock%}

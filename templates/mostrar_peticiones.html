@@ -1,0 +1,50 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Peticiones{% endblock %}
+{% block contenido %}
+	
+	<h1>Lista de Peticiones de Salida</h1>
+
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<thead>
+				<tr>
+
+					<th>ver</th>
+		      		<th>Identida</th>
+		     		<th>Nombre</th>
+		     		<th>Apellido</th>
+		     		<th>Ficha</th>
+		        	<th>Programa</th>
+		        	<th>Jornada</th>
+		        	<th>Fecha</th>
+		        	<th>Hora</th>
+		        	<th>Aprobar</th>
+		        	<th>Rechazar</th>
+		     	</tr>
+			</thead>
+			<tbody>
+				{% for list in  peticion %}
+				<tr>
+
+					<td> <a href="{% url 'url_ver_peticion' id_pet=list.id %}" >ver{{list.id}}</a></td>
+
+					<td>{{ list.documentoIdentidad }}</td>
+					<td>{{ list.nombres }}</td>
+					<td>{{ list.apellidos }}</td>
+					
+					<td>{{ list.numeroFicha }}</td>
+					<td>{{ list.abreviacion }}</td>
+					<td>{{ list.jornada }}</td>
+
+					<td>{{ list.fecha  }}</td>
+					<td>{{ list.horaSalida }}</td>
+					<td> <a href="{% url 'url_aprobar_peticion' id_pet=list.id %}">finalizar</a></td>
+					<td> <a href="{% url 'url_rechazar_peticion' id_pet=list.id %}">rechazar</a></td>
+
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

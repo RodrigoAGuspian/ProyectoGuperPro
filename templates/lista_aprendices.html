@@ -1,0 +1,47 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Listar Aprendices{% endblock %}
+{% block contenido %}
+  
+  <h1>Aprendices</h1>
+  <div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+  		<tr>
+        <th>id</th>
+      	<th>Identida</th>
+     		<th>Nombre</th>
+     		<th>Apellido</th>
+     		<th>Email</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+     	</tr>
+  	  {% for lis in lista %}
+      <tr>
+        <td>{{lis.0}}</td>
+  			<td>{{lis.1}}</td>
+  			<td>{{lis.2}}</td>
+  			<td>{{lis.3}}</td>
+  			<td>{{lis.4}}</td>
+        
+        <td><a href="{% url 'url_editar_aprendiz' id_aprendiz=lis.0 %}">editar</a></td>
+
+        <td>
+          {% if lis.5 %}
+<!--================= Alerta ============================-->
+          <a href="#" onclick="{alert('Este aprendiz no se puede eliminar')}">eliminar</a>
+          {% else %}
+          <a href="{% url 'url_eliminar_aprendiz' id_aprendiz=lis.0 %}" onclick=" if(! confirm('deseas eliminar el/la aprendiz {{lis.2}}')) return false;">eliminar</a>
+          {% endif %}
+        </td>
+        
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  {% if msj2 %}
+    {{msj2}}
+  {% elif msj %}
+    <a href="{% url 'url_agregar_aprendiz' %}">{{msj}}</a>
+  {% endif %}
+  
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Registrar{% endblock %}
+{% block contenido %}
+	
+	<table>
+    <tr>
+      <th>NºIdentidad</th>
+      <th>Nombre_</th>
+      <th>Apellido__</th>
+      <th>Correo</th>
+      <th>Programa</th>
+      <th>Ficha</th>
+    </tr>
+
+    {% for l in lista %}
+    <tr>
+      <td>{{ l.0.value }}</td>
+      <td>{{ l.1.value }}</td>
+      <td>{{ l.2.value }}</td>
+      <td>{{ l.3.value }}</td>
+      <td>{{ l.4.value }}</td>
+      <td>{{ l.5.value }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="{% url 'url_lista_aprendices' %}">lista</a>
+{% endblock %}

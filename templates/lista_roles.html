@@ -1,0 +1,39 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Roles{% endblock %}
+{% block contenido %}
+<!--tabla para mostrar los roles-->
+	<h1>Lista de Roles</h1>
+	<div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<tr>
+				<th>Rol</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
+			</tr>
+		<!--inicio del ciclo-->
+			{% for lis in lista %}
+			<tr>
+				<td>{{lis.1}}</td>
+				
+				<td><a href="{%url 'url_editar_rol' id_rol=lis.0 %}">editar</a></td><!--enlace para editar un rol-->
+
+		 		<td>
+		          {% if lis.2 %}
+		<!--=================  al eliminar Alerta ============================-->
+		          <a href="#" onclick="{alert('Este rol no se puede eliminar porque hay personas asociada a el')}">eliminar</a>
+		          {% else %}
+		          <a href="{%url 'url_eliminar_rol' id_rol=lis.0 %}" onclick=" if(! confirm('deseas eliminar el rol {{lis.1}}')) return false;">eliminar</a>
+		          {% endif %}
+		        </td>
+		<!--==================================================================-->
+
+			</tr>	
+			{%endfor%}
+		</table>
+	</div>}
+
+  {% if msj %}
+	<a href="{% url 'url_agregar_rol' %}">{{msj}}</a>
+  {% endif %}	
+	
+{% endblock %}

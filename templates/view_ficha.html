@@ -1,0 +1,84 @@
+{% extends 'main/main.html' %}
+{% block titulo %}{% endblock %}
+{% block contenido %}
+	
+
+	<h1> Reporde de la ficha {{ ficha.numeroFicha }}  {{ ficha.programa.abreviacion }}</h1>
+
+	<a href="" onClick="history.back()">Volver</a>
+	
+	<div class="table-responsive">
+	    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<thead>
+				<th>Nombre del programa</th>
+				<th>Número de ficha</th>
+				<th>Jornada</th>
+				<th>Ambiente</th>
+				<th>Lider</th>
+				<th>Fin de la etapa lectiva</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{ ficha.programa.nombre }}</td>
+					<td>{{ ficha.numeroFicha }}</td>
+					<td>{{ ficha.jornada }}</td>
+					<td>{{ ficha.ambiente }}</td>
+					<td>{{ ficha.lider }}</td>
+					<td>{{ ficha.fechaFinEtapaLectiva }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<h2>Aprendices</h2>
+	<div class="table-responsive">
+	    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Número de documento</th>
+					<th>Nombres</th>
+					<th>Apellidos</th>
+					<th>Teléfono</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for persona in persona %}
+				<tr>
+					<td>	{{ persona.persona.documentoIdentidad}}</td>
+					<td>	{{ persona.persona.nombres }}</td>
+					<td>	{{ persona.persona.apellidos }}</td>
+					<td>	{{ persona.persona.telefono }}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<h2>Instructores</h2>
+	<ol>
+		{% for q in queryInstructor %}
+		<li>{{ q }}</li>
+		{% endfor %}
+	</ol>
+
+	<h2>Permiso de los Instructores</h2>
+	<div class="table-responsive">
+	    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<thead>
+				<th>Nombre</th>
+				<th>Ver perfil</th>
+			</thead>
+			<tbody>
+			{% for permiso in permisoInstructor %}
+					{% for permiso1 in permiso %}
+				<tr>
+					<td>{{ permiso1.nombres }}</td>
+					<td><a href="{% url 'url_persona_perfil' id_persona=permiso1.id %}"><i class="fa fa-eye"></i></a></td>
+				</tr>
+					{% endfor %}
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

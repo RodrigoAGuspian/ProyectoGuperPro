@@ -1,0 +1,42 @@
+{% extends 'main/main.html' %}
+{% block titulo %}Peticion de salida{% endblock %}
+{% block contenido %}
+	
+	{% if not msjError %}
+		
+		<h1>Detalles de la solicitud</h1>
+
+		{% if permiso.persona.imgPerfil %}
+			<img width="200px" height="200px" src="/media/{{permiso.persona.imgPerfil}}" alt="">
+		{% endif %}				
+					
+		<p>
+			Aprendiz {{permiso.persona.nombres}} {{permiso.persona.apellidos}} <br>
+
+			{% for fic in ficha %}
+				Ficha : {{fic.ficha.numeroFicha}} {{fic.ficha.programa.abreviacion}} <br>
+			{% endfor %}
+
+			Aprobado por : {{instru.nombres}} {{instru.apellidos}}
+		 </p>
+
+		<p>
+			Fecha: {{permiso.permiso.fecha}} <br>
+			Hora : {{permiso.permiso.horaSalida}}
+			
+			<h6>Motivo del permiso</h6>
+
+			{{permiso.permiso.motivo}} <br>
+			{{permiso.permiso.solicitoPermisoPor}}
+
+		</p>
+		
+		<td> <a href="{% url 'url_aprobar_peticion' id_pet=permiso.id %}" class="btn btn-info">finalizar</a></td>
+		<td> <a href="{% url 'url_rechazar_peticion' id_pet=permiso.id %}" class="btn btn-danger">rechazar</a></td>
+
+
+	{% else %}
+		<h6 style="background:pink">{{msjError}}</h6>
+	{% endif %}
+	<a href="{% url 'url_peticiones' %}" class="btn btn-secondary">regresar</a>
+{% endblock %}
