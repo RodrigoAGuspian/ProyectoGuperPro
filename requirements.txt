@@ -7,7 +7,7 @@ Django==2.0.4
 django-allauth==0.36.0
 django-rest-auth==0.9.3
 django-toolbelt==0.0.1
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 et-xmlfile==1.0.1
 gunicorn==19.8.1
 idna==2.6
